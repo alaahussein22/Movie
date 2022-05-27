@@ -1,0 +1,13 @@
+<nav class="navbar navbar-light">
+  <div class="container-fluid">
+    <router-link class="navbar-brand" [routerLink]="['/movies']">Movies</router-link>
+    <router-link class="navbar-brand" [routerLink]="['/favorite']">Favorite</router-link>
+
+    <form class="d-flex" #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <input class="nav-search search form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn nav-search-btn me-2" type="submit">Search</button>
+      <button class="btn btn-warning " type="submit" [routerLink]="['/login']">Login</button>
+
+    </form>
+  </div>
+</nav>

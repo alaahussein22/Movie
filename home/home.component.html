@@ -1,0 +1,24 @@
+
+<div class="container-fluid" ng-app="newapp" ng-controller="newcontroller" data-ng-init="init()">
+  <div class="filters">
+    <label class="text-light">Choose :</label>
+    <select  class="form-contol select-option" [(ngModel)]="selectedVal" (ngModelChange)="onSelectedValue($event)">
+      <option *ngFor='let mov of select' [value]="mov.name" >{{mov.name}}</option>
+    </select>
+  </div>
+  <div class="row">
+      <div  *ngFor='let object of data' class="col-md-3">
+      <div class="card"  style="width: 18rem;">
+          <img src="https://image.tmdb.org/t/p/w500{{object.poster_path}}" class="card-img-top" alt="..." [routerLink]="['/details',object.id]">
+          <div class="card-body">
+            <h5 class="card-text">{{object.original_title}}</h5>
+            <p>{{object.id}}</p>
+            <div class="icon-bar" >
+              <fa-icon [icon]="['far','heart']"  (click)="onFavClick()" *ngIf="!isFav" ></fa-icon>
+              <fa-icon [icon]="['fas','heart']"  (click)="onFavClick()" *ngIf="isFav"></fa-icon>
+            </div>
+          </div>
+      </div>
+      </div>
+  </div>
+</div>
